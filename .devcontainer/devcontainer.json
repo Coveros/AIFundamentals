@@ -1,0 +1,25 @@
+{
+  "name": "AIFundamentals Codespace",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+  "forwardPorts": [8885],
+  "portsAttributes": {
+    "8885": {
+      "label": "MLflow UI",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "python -m pip install --upgrade pip && python -m pip install -r requirements.txt jupyterlab notebook ipykernel",
+  "postStartCommand": "bash -lc 'pgrep -f \"mlflow ui --host 0.0.0.0 --port 8885\" >/dev/null || nohup mlflow ui --host 0.0.0.0 --port 8885 --backend-store-uri sqlite:///mlruns.db >/tmp/mlflow.log 2>&1 &'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "shd101wyy.markdown-preview-enhanced"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  }
+}
