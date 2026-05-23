@@ -9,7 +9,8 @@
     }
   },
   "postCreateCommand": "python -m pip install --upgrade pip && python -m pip install -r requirements.txt jupyterlab notebook ipykernel && python -m ipykernel install --user --name training-env --display-name training-env && python -m ipykernel install --user --name det-env --display-name det-env",
-  "postStartCommand": "bash -lc 'pgrep -f \"mlflow ui --host 0.0.0.0 --port 8885\" >/dev/null || nohup mlflow ui --host 0.0.0.0 --port 8885 --backend-store-uri sqlite:///mlruns.db >/tmp/mlflow.log 2>&1 &'",
+  "postStartCommand": "bash -lc 'pgrep -f \"mlflow ui --host 0.0.0.0 --port 8885\" >/dev/null || nohup python -m mlflow ui --host 0.0.0.0 --port 8885 --backend-store-uri sqlite:///mlruns.db >/tmp/mlflow.log 2>&1 &'",
+  "postAttachCommand": "bash -lc 'pgrep -f \"mlflow ui --host 0.0.0.0 --port 8885\" >/dev/null || nohup python -m mlflow ui --host 0.0.0.0 --port 8885 --backend-store-uri sqlite:///mlruns.db >/tmp/mlflow.log 2>&1 &'",
   "customizations": {
     "vscode": {
       "extensions": [
