@@ -53,6 +53,7 @@ coverage.xml
 mlruns/
 mlartifacts/
 *.db
+/tmp/mlflow.log
 
 .pytest_cache/
 cover/
