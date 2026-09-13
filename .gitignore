@@ -48,6 +48,12 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+
+# MLflow runtime tracking & artifacts
+mlruns/
+mlartifacts/
+*.db
+
 .pytest_cache/
 cover/
 
